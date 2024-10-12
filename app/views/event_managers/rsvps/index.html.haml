@@ -1,0 +1,43 @@
+= stylesheet_link_tag 'list-events.css'
+.container-fluid.table-container.attendees
+  .d-flex.justify-content-start.back-button
+    = link_to event_managers_event_path(@event.id), class: "btn btn-outline-secondary" do
+      %i.fa.fa-arrow-left{"aria-hidden" => "true", "style" => "font-size: 1em;"}
+      %span.back-txt Back  
+  %h3.text-center RSVP'd ATTENDEES FOR : #{@event.title}
+  .py-2
+    = search_form_for @q, url: event_managers_event_rsvps_path(event_id: @event.id) do |f|
+      .form-group.row.justify-content-center
+        .col-3
+          \#{f.search_field :user_first_name_or_user_last_name_cont, class: 'form-control ransack-search', placeholder: 'Attendee Name'}
+        .col-1
+          \#{f.submit class: 'btn btn-outline-dark submit form-control'}
+  %table.table.list-table
+    %thead.table-dark
+      %tr
+        %th{scope: "col"}=sort_headers(:id, 'Id')
+        %th{scope: "col"}=sort_headers(:user_first_name, 'First Name')
+        %th{scope: "col"}=sort_headers(:user_last_name, 'Last Name')
+        %th{scope: "col"}=sort_headers(:user_email, 'Email')
+        %th{scope: "col"}=sort_headers(:user_date_of_birth, 'Date of Birth')
+        %th{scope: "col"}=sort_headers(:user_age, 'Age')
+        - if @event.status == 'upcoming'
+          %th{scope: "col"}=sort_headers(:rsvp_status, 'Status')
+    %tbody
+      - @rsvps.each do |rsvp|
+        %tr
+          %th{scope: "row"}=rsvp.user.id
+          %td=rsvp.user.first_name
+          %td=rsvp.user.last_name
+          %td=rsvp.user.email
+          %td=rsvp.user.date_of_birth
+          %td=rsvp.user.age
+          - if @event.status == 'upcoming'
+            - if rsvp.rsvp_status == 'unconfirmed'
+              %td.icon-column
+                = button_to "Confirm", event_managers_event_rsvp_path(@event.id, rsvp.id), params: {event_id: rsvp.event.id}, method: :patch ,class: "btn btn-dark"
+            - else
+              %td.icon-column
+                = button_to "Unconfirm", event_managers_event_rsvp_path(@event.id, rsvp.id), params: {event_id: rsvp.event.id}, method: :patch ,class: "btn btn-warning"
+  .digg_pagination
+    = will_paginate @rsvps, :container => false

@@ -1,0 +1,44 @@
+.col-lg-8.mx-auto
+  .card
+    .card-header
+      %h2.text-center.card-title Update Details
+    .card-body
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = render "event_managers/shared/error_messages", resource: resource
+        .form-group.row
+          .col-lg-6
+            = f.label :first_name
+            = f.text_field :first_name, class: "form-control"
+          .col-lg-6
+            = f.label :last_name
+            = f.text_field :last_name, class: "form-control"
+        .form-group.row
+          .col-lg-12
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
+          - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+            %div
+              Currently waiting confirmation for: #{resource.unconfirmed_email}
+        .form-group.row
+          .col-lg-6
+            = f.label :age
+            = f.number_field :age, class: "form-control"
+          .col-lg-6
+            = f.label :date_of_birth
+            = f.date_field :date_of_birth , class: "form-control"
+        .form-group.row
+          .col-lg-6
+            = f.label :password, "Password (#{@minimum_password_length} characters minimum)"
+            = f.password_field :password, autocomplete: "new-password", class: "form-control", id: 'user_password'
+          .col-lg-6
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
+        .form-group.row
+          .col-lg-12
+            = f.label :current_password
+            %i (we need your current password to confirm your changes)
+            %br/
+            = f.password_field :current_password, autocomplete: "current-password", class: "form-control"
+        .actions.mt-4
+          = f.submit "Update",class: "btn btn-secondary"

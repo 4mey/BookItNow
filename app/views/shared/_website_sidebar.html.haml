@@ -1,0 +1,60 @@
+= stylesheet_link_tag 'sidebar.css'
+%nav.navbar.navbar-expand-lg.bg-body-secondary.sidebar
+  .container-fluid.side-container
+    %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", type: "button"}
+      %span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+    - if event_manager_signed_in?
+      -if current_event_manager.avatar.attached?
+        %a.nav-link.sidebar-link
+          = image_tag(current_event_manager.avatar, alt: "avatar", class: "profile-photo", id: "avatar", height: "140px", width: "140px")
+      -else
+        %a.nav-link.sidebar-link
+          = image_tag('user.jpg', alt: "avatar", class: "profile-photo", id: "avatar", height: "140px", width: "140px")
+    - if attendee_signed_in?
+      -if current_attendee.avatar.attached?
+        %a.nav-link.sidebar-link
+          = image_tag(current_attendee.avatar, alt: "avatar", class: "profile-photo", id: "avatar", height: "140px", width: "140px")  
+      -else
+        %a.nav-link.sidebar-link
+          = image_tag('user.jpg', alt: "avatar", class: "profile-photo", id: "avatar", height: "140px", width: "140px")
+    %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+      %li.nav-item.dropdown
+        %a.nav-link.sidebar-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#", role: "button"}
+          %i.fa.fa-user{"aria-hidden" =>"true"}
+          My Profile
+        %ul.dropdown-menu
+          - if event_manager_signed_in?
+            %li
+              %a.dropdown-item{href: new_event_managers_avatar_path} Update avatar
+            %li
+              %a.dropdown-item{href: edit_event_manager_registration_path} Update personal data
+          - if attendee_signed_in?
+            %li
+              %a.dropdown-item{href: new_attendees_avatar_path} Update avatar
+            %li
+              %a.dropdown-item{href: edit_attendee_registration_path} Update personal data
+      %li.nav-item.dropdown
+        %a.nav-link.sidebar-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#", role: "button"}
+          %i.fa.fa-calendar{"aria-hidden" => "true"}
+          Events
+        %ul.dropdown-menu
+          - if event_manager_signed_in?
+            %li
+              %a.dropdown-item{href:  event_managers_events_path} Events
+            %li
+              %a.dropdown-item{href: new_event_managers_event_path} Create New Event
+          - if attendee_signed_in?
+            %li
+            %a.dropdown-item{href: attendees_events_path} Events
+            %li
+              %a.dropdown-item{href: upcoming_events_attendees_events_path} Upcoming Event
+            %li
+              %a.dropdown-item{href: past_events_attendees_events_path} Past Events
+      - if current_event_manager
+        %a.nav-link.signout_btn.mb-4{href: "/dashboard"} 
+          %i.fa.fa-tachometer{"aria-hidden" => "true"}
+          Dashboard  
+      %a.nav-link.signout_btn
+        %i.fa.fa-sign-out{"aria-hidden" => "true"}
+        = button_to "Sign Out", destroy_user_session_path, method: :delete, class: "signout-link"

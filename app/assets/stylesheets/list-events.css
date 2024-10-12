@@ -1,0 +1,136 @@
+.digg_pagination {
+  background: white;
+  cursor: default;
+  /* self-clearing method: */ }
+  .digg_pagination a, .digg_pagination span, .digg_pagination em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .digg_pagination .disabled {
+    color: #999999;
+    border: 1px solid #dddddd; }
+  .digg_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #000000;
+    color: white;
+    border: 1px solid #000000; }
+  .digg_pagination a {
+    text-decoration: none;
+    color: #000000;
+    border: 1px solid #000000; }
+    .digg_pagination a:hover, .digg_pagination a:focus {
+      color: #000033;
+      border-color: #000000; }
+  .digg_pagination .page_info {
+    background: #000000;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center; }
+    .digg_pagination .page_info b {
+      color: #000033;
+      background: #000000;
+      padding: 0.1em 0.25em; }
+  .digg_pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .digg_pagination {
+    height: 1%; }
+  *:first-child + html .digg_pagination {
+    overflow: hidden; }
+
+.container-fluid.table-container{
+  margin-top: 8vh;
+  width: 95%;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.list-table{
+  border: solid 1px black;
+}
+
+.status-filter {
+  margin-bottom: 1vw;
+}
+
+.category-filter{
+  margin-bottom: 1vw;
+  margin-left: 10px;
+}
+
+.dropbtn {
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.eye-icon{
+  color: #000000;
+}
+
+.rsvp-button{
+  margin-bottom: 1vw;
+}
+
+td.icon-column {
+  width: 7vw;
+}
+
+.container-fluid.table-container.attendees{
+  margin-top: 4vh;
+}
+
+.form-select {
+  border: var(--bs-border-width) solid #000000;
+}
+
+.form-control.ransack-field{
+  border: var(--bs-border-width) solid #000000;
+}
+
+
+span.back-txt{
+  font-size: 17px;
+  font-weight: 500;
+}
+
+i.fa.fa-arrow-left:hover{
+  -webkit-text-stroke: 2px #894eff;
+}
+
+
+.form-control {
+  border: var(--bs-border-width) solid #000000;
+}

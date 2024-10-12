@@ -1,0 +1,53 @@
+= stylesheet_link_tag 'list-events.css'
+.container-fluid.table-container
+  %h3.text-center EVENTS LIST
+  .py-2
+    = search_form_for @q, url: event_managers_events_path do |f|
+      .form-group.row.justify-content-evenly
+        .col-2
+          \#{f.select(:status_eq , options_for_select([['All Events', nil],['Upcoming Events', :upcoming], ['Past Events', :completed]],selected: params.dig(:q, :status_eq)), {}, { class: 'form-select'})}
+        .col-2
+          \#{f.select(:category_eq , options_for_select([['Social', Event.categories[:social]],['Workshop', Event.categories[:workshop]], ['Conference', Event.categories[:conference]], ['Sports', Event.categories[:sports]]],selected: params.dig(:q, :category_eq)), {include_blank: 'All Categories'}, { class: 'form-select'})}  
+        .col-5.row.align-items-center
+          .col-1
+            \#{f.label 'From:'}
+          .col-5
+            \#{f.date_field :start_date_gteq, class: 'form-control ransack-field'}
+          .col-1
+            \#{f.label 'To:'}
+          .col-5
+            \#{f.date_field :end_date_lteq, class: 'form-control ransack-field'}
+        .col-2
+          \#{f.search_field :title_or_description_or_location_cont, class: 'form-control ransack-field', id: 'ransack-search', placeholder: 'title, desc, location'}
+        .col-1
+          \#{f.submit class: 'btn btn-outline-dark submit form-control', value: 'Filter'}
+
+  %table.table.list-table
+    %thead.table-dark
+      %tr
+        %th{scope: "col"}= sort_headers(:id,'Id')
+        %th{scope: "col"}= sort_headers(:title,'Title')
+        %th{scope: "col"}= sort_headers(:start_date,'Event Date')
+        %th{scope: "col"}= sort_headers(:location,'Location')
+        %th{scope: "col"}= sort_headers(:status,'Status')
+        %th{scope: "col"}= sort_headers(:category,'Category')
+        %th{scope: "col"}
+    %tbody
+      - @events.each do |event|  
+        %tr
+          %th{scope: "row"}=event.id
+          %td=event.title
+          %td=event.start_date.to_date
+          %td=event.location
+          %td=event.status 
+          %td=event.category        
+          %td.icon-column
+            = link_to event_managers_event_path(event.id), class: "show-link" do
+              %i.fa.fa-eye.eye-icon{"aria-hidden" => "true", "style" => "font-size: 1.5em;"}
+            -if event.user_id == current_event_manager.id
+              = link_to edit_event_managers_event_path(event.id) , class: "show-link", params: {event_id: event.id} do
+                %i.fa.fa-pencil.eye-icon{"aria-hidden" => "true", "style" => "font-size: 1.5em;"}
+              = link_to event_managers_event_path(event.id) , class: "show-link", data: { turbo_method: 'delete', turbo_confirm: "Are you sure you want to delete this Event?" },id: "delete-icon-#{event.id}", params: {event_id: event.id} do
+                %i.fa.fa-trash.eye-icon{"aria-hidden" => "true", "style" => "font-size: 1.5em;"}
+  .digg_pagination
+    = will_paginate @events, :container => false

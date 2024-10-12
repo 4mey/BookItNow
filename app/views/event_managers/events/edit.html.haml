@@ -1,0 +1,36 @@
+.col-lg-8.mx-auto.edit-form
+  .d-flex.justify-content-start.mb-5.back-button
+    = link_to 'javascript:window.history.back();', class: "btn btn-outline-secondary" do
+      %i.fa.fa-arrow-left{"aria-hidden" => "true", "style" => "font-size: 1em;"}
+      %span.back-txt Back  
+  .card.mt-5
+    .card-header
+      %h2.text-center.card-title Edit Event Details
+    .card-body
+      .d-flex.flex-column
+        -if @event.errors.any?
+          %h4 
+            Errors prohibited this event from being edited :
+          - @event.errors.full_messages.each do |error_message|
+            %p.warnings • &nbsp #{error_message}
+      = form_with model: @event , :method => "put", url: event_managers_event_path do |f|
+        .col-lg-12
+          = f.label :title
+          = f.text_field :title, class: "form-control", :value => @event.title
+        .col-lg-12
+          = f.label :description 
+          = f.text_area :description , class: "form-control", :value => @event.description
+        .col-lg-12
+          = f.label :start_date
+          = f.datetime_field :start_date , class: "form-control", :value => @event.start_date
+        .col-lg-12
+          = f.label :end_date
+          = f.datetime_field :end_date , class: "form-control", :value => @event.end_date
+        .col-lg-12
+          = f.label :location
+          = f.text_field :location, class: "form-control", :value => @event.location
+        .col-lg-12
+          = f.label :category
+          = f.select(:category, ["workshop", "social", "conference", "sports"], {}, { :class => 'form-control', :value => @event.category})
+        .actions.mt-4
+          = f.submit "Save Changes" ,class: "btn btn-secondary"

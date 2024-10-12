@@ -1,0 +1,17 @@
+input.avatar-field{
+  margin-right: 10px;
+}
+
+.card.avatar{
+  margin-top: 17%;
+}
+
+.mx-auto.avatar-container {
+  margin-right: auto !important;
+  margin-left: auto !important;
+  width: 40vw;
+}
+
+.profile-photo-thumb{
+  border-radius: 50%;
+}

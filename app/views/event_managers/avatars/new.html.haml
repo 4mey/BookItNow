@@ -1,0 +1,26 @@
+.col-lg-4.mx-auto.avatar-container
+  .card.avatar
+    .card-header.d-flex.justify-content-center
+      -if current_event_manager.avatar.attached?
+        %a.nav-link
+          = image_tag(current_event_manager.avatar, alt: "avatar", class: "profile-photo-thumb", id: "avatar", height: "300px", width: "300px") 
+      -else
+        %a.nav-link
+          = image_tag('user.jpg', alt: "avatar", class: "profile-photo-thumb", id: "avatar", height: "250px", width: "250px") 
+    = form_for current_event_manager, url: event_managers_avatar_path(current_event_manager.id) , method: 'put' do |form|
+      .card-body.d-flex.flex-column.justify-content-center.align-items-sm-center
+        %h5 Attach Files to Update your Avatar
+      .card-body.d-flex
+        = form.file_field :avatar, class: "form-control avatar-field"
+        = form.submit "Upload Avatar", class: "btn btn-secondary"
+      .d-flex.flex-column.justify-content-center.align-items-sm-center
+        -unless warnings.nil?
+          -if warnings.is_a?(Array)
+            - warnings.each do |error_message|
+              %p.warnings= error_message
+          -else
+            %p.warnings= warnings
+    -if current_event_manager.avatar.attached?
+      .card-body.d-flex.flex-column.justify-content-center.align-items-sm-center
+        %h5 Do you wish to remove your avatar?
+        = button_to "Remove Avatar", event_managers_avatar_path(current_event_manager.id), method: :delete, class: "btn btn-secondary"

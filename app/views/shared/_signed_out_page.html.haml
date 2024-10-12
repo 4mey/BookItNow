@@ -1,0 +1,240 @@
+/ navbar
+.page-wrapper
+    .nav-wrapper
+    .grad-bar
+    %nav.navbar
+        %img{src: "./LOGO.jpg"}/
+        #mobile-menu.menu-toggle
+        %span.bar
+        %span.bar
+        %span.bar
+        %ul.nav.no-search
+        %li.nav-item
+            %a{href: "#"} Home
+        %li.nav-item
+            %a{href: "#news"} News
+        %li.nav-item
+            %a{href: "#events"} Events
+        %li.nav-item
+            %a{href: "#jobs"} Jobs
+        %li.nav-item
+            %a{href: "#footer"} Contact Us
+        %i#search-icon.fas.fa-search
+    / Ending navbar
+    / Landing Page
+    .landing-page.container
+        .content
+        .container
+            .info
+            %h1 WELCOME TO OST TALENT BLOG WEBSITE!
+            %p
+                Discover a world of knowledge, insights, and inspiration through our diverse collection
+                of blogs, bringing you the latest trends, expert opinions, and valuable information
+                across three engaging segments.
+            %button EXPLORE
+            .image
+            %img{src: "./OST LANDING ..png"}/
+    / End Landing Page
+    / News Section
+    #news.main
+        %h1
+        NEWS
+        %span.headeralt FEED
+        %ul.cards
+        %li.cards_item
+            .card
+            .card_image
+                %img{src: "./1.png"}/
+            .card_content
+                %h2.card_title What My Book Adaptation Taught Me About Hollywood
+                %p.card_text Sometimes There are Happy Endings
+                %button.bttn.card_bttn Read More
+        %li.cards_item
+            .card
+            .card_image
+                %img{src: "./2.png"}/
+            .card_content
+                %h2.card_title Flashback to Mend the Damage Done, Revisiting.
+                %p.card_text 1972, John Prine, Neil Young, and friendship
+                %button.bttn.card_bttn Read More
+        %li.cards_item
+            .card
+            .card_image
+                %img{src: "./3.png"}/
+            .card_content
+                %h2.card_title You’re Not 50% Mom, 50% Dad Like They Told You
+                %p.card_text Good thing, too, because you’d probably be dead
+                %button.bttn.card_bttn Read More
+        %li.cards_item
+            .card
+            .card_image
+                %img{src: "./4.png"}/
+            .card_content
+                %h2.card_title Through the Eyes of a Black Father: Unmasking the Pain
+                %p.card_text
+                The Reality of Stress and Depression Among Black Men in Fatherhood
+                %button.bttn.card_bttn Read More
+        %li.cards_item
+            .card
+            .card_image
+                %img{src: "./5.png"}/
+            .card_content
+                %h2.card_title
+                Reddit’s Latest Mod Revolt Highlights a Question Bigger than API
+                Pricing
+                %p.card_text
+                Reddit is facing a “blackout”, meaning many subreddit moderators
+                will turn their subs temporarily
+                %button.bttn.card_bttn Read More
+        %li.cards_item
+            .card
+            .card_image
+                %img{src: "./6.png"}/
+            .card_content
+                %h2.card_title Can Apple’s Vision Pro succeed where Google Glass failed?
+                %p.card_text
+                Google Glass failed for a few reasons: no clear purpose of use,
+                safety concerns, price, &amp; more
+                %button.bttn.card_bttn Read More
+#events.container
+    %h1.sectionheading
+    UPCOMING
+    %span.headeralt EVENTS
+    #carouselExampleCaptions.carousel.slide
+    .carousel-indicators
+        %button.active{"aria-current" => "true", "aria-label" => "Slide 1", "data-bs-slide-to" => "0", "data-bs-target" => "#carouselExampleCaptions", type: "button"}
+        %button{"aria-label" => "Slide 2", "data-bs-slide-to" => "1", "data-bs-target" => "#carouselExampleCaptions", type: "button"}
+        %button{"aria-label" => "Slide 3", "data-bs-slide-to" => "2", "data-bs-target" => "#carouselExampleCaptions", type: "button"}
+        %button{"aria-label" => "Slide 4", "data-bs-slide-to" => "3", "data-bs-target" => "#carouselExampleCaptions", type: "button"}
+        %button{"aria-label" => "Slide 5", "data-bs-slide-to" => "4", "data-bs-target" => "#carouselExampleCaptions", type: "button"}
+    .carousel-inner
+        .carousel-item.active
+        .carouselimg
+            %img.d-block.w-100{alt: "...", src: "./carousel/1.jpg"}/
+        .carousel-caption.d-none.d-md-block
+            %h5.carouselhead Apple Worldwide Developers Conference (WWDC)
+            %p.carouseltext
+            Annual conference where Apple announces its latest software and hardware
+            innovations.
+        .carousel-item
+        .carouselimg
+            %img.d-block.w-100{alt: "...", src: "./carousel/2.jpg"}/
+        .carousel-caption.d-none.d-md-block
+            %h5.carouselhead Alibaba Singles' Day
+            %p.carouseltext
+            The world's largest online shopping festival, organized by Alibaba,
+            offering massive discounts and deals to consumers globally.
+        .carousel-item
+        .carouselimg
+            %img.d-block.w-100{alt: "...", src: "./carousel/3.jpg"}/
+        .carousel-caption.d-none.d-md-block
+            %h5.carouselhead NVIDIA GPU Technology Conference (GTC)
+            %p.carouseltext
+            A gathering of developers, researchers, and industry leaders to explore
+            the latest advancements in GPU technology, artificial intelligence, and virtual reality.
+        .carousel-item.active
+        .carouselimg
+            %img.d-block.w-100{alt: "...", src: "./carousel/4.jpg"}/
+        .carousel-caption.d-none.d-md-block
+            %h5.carouselhead IBM Think
+            %p.carouseltext
+            A flagship conference by IBM that focuses on showcasing their latest
+            innovations in artificial intelligence, cloud computing, and data analytics.
+        .carousel-item.active
+        .carouselimg
+            %img.d-block.w-100{alt: "...", src: "./carousel/5.jpg"}/
+        .carousel-caption.d-none.d-md-block
+            %h5.carouselhead Intel Developer Forum (IDF)
+            %p.carouseltext
+            A conference where Intel showcases its latest technologies, processors,
+            and development tools for software and hardware developers.
+    %button.carousel-control-prev{"data-bs-slide" => "prev", "data-bs-target" => "#carouselExampleCaptions", type: "button"}
+        %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+        %span.visually-hidden Previous
+    %button.carousel-control-next{"data-bs-slide" => "next", "data-bs-target" => "#carouselExampleCaptions", type: "button"}
+        %span.carousel-control-next-icon{"aria-hidden" => "true"}
+        %span.visually-hidden Next
+/ jobs
+#jobs.container.jobs
+    %h1
+    %span.headeralt JOBS
+    .container
+    .row
+        %a.col-md-4{"data-gallery" => "gallery", "data-toggle" => "lightbox", href: ""}
+        %img.img-fluid.rounded{src: "./jobs/1.jpg"}/
+        %a.col-md-4{"data-gallery" => "gallery", "data-toggle" => "lightbox", href: ""}
+        %img.img-fluid.rounded{src: "./jobs/2.jpg"}/
+        %a.col-md-4{"data-gallery" => "gallery", "data-toggle" => "lightbox", href: ""}
+        %img.img-fluid.rounded{src: "./jobs/3.jpg"}/
+    .row
+        %a.col-md-4{"data-gallery" => "gallery", "data-toggle" => "lightbox", href: ""}
+        %img.img-fluid.rounded{src: "./jobs/4.jpg"}/
+        %a.col-md-4{"data-gallery" => "gallery", "data-toggle" => "lightbox", href: ""}
+        %img.img-fluid.rounded{src: "./jobs/5.jpg"}/
+        %a.col-md-4{"data-gallery" => "gallery", "data-toggle" => "lightbox", href: ""}
+        %img.img-fluid.rounded{src: "./jobs/6.jpg"}/
+%footer#footer.section.bg-footer
+    .container
+    .row
+        .col-lg-3
+        %div
+            %h6.footer-heading.text-uppercase.text-white Information
+            %ul.list-unstyled.footer-link.mt-4
+            %li
+                %a{href: ""} Pages
+            %li
+                %a{href: ""} About
+            %li
+                %a{href: ""} Features
+            %li
+                %a{href: ""} Price
+        .col-lg-3
+        %div
+            %h6.footer-heading.text-uppercase.text-white Resources
+            %ul.list-unstyled.footer-link.mt-4
+            %li
+                %a{href: ""} Help
+            %li
+                %a{href: ""} Career
+            %li
+                %a{href: ""} Overview
+            %li
+                %a{href: ""} Status
+        .col-lg-2
+        %div
+            %h6.footer-heading.text-uppercase.text-white Help
+            %ul.list-unstyled.footer-link.mt-4
+            %li
+                %a{href: ""} Sign Up
+            %li
+                %a{href: ""} Login
+            %li
+                %a{href: ""} Terms of Services
+            %li
+                %a{href: ""} Privacy Policy
+        .col-lg-4
+        %div
+            %h6.footer-heading.text-uppercase.text-white Contact Us
+            %p.contact-info.mt-4 Contact us if need help withanything
+            %p.contact-info +01 123-456-7890
+    .text-center.mt-5
+    %p.footer-alt.mb-0.f-14 made with love ❤️
+%script{crossorigin: "anonymous", integrity: "sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz", src: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"}
+%script{src: "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", type: "text/javascript"}
+:javascript
+$("#search-icon").click(function () {
+        $(".nav").toggleClass("search");
+        $(".nav").toggleClass("no-search");
+        $(".search-input").toggleClass("search-active");
+    });
+
+    $('.menu-toggle').click(function () {
+        $(".nav").toggleClass("mobile-nav");
+        $(this).toggleClass("is-active");
+    });
+
+    $(document).on("click", '[data-toggle="lightbox"]', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+});
+%script{src: "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", type: "text/javascript"}

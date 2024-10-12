@@ -1,0 +1,28 @@
+.container.dashboard.mb-2
+  %h3.text-center DASHBOARD
+  .d-flex.mb-3
+    = button_to "Events Data(CSV)", download_event_managers_events_path(request.params.merge(format: :csv)), data: {turbo: :false},class: "btn btn-outline-dark"  
+    = button_to "Events Data(PDF)", download_event_managers_events_path(request.params.merge(format: :pdf)), data: {turbo: :false},class: "btn btn-outline-dark pdf-btn"
+  .row
+    .col-lg.chart
+      %h5
+        %u
+          Users Created per Day : 
+          = line_chart User.group_by_day(:created_at).count, height: "250px"
+    .col-lg.chart
+      %h5
+        %u
+          RSVP's per Category :
+          = area_chart Rsvp.joins(:event).group('events.category').count, height: "250px"
+  .row
+    .col-lg.chart
+      %h5
+        %u
+          Rsvp Statuses :
+          = bar_chart Event.joins(:rsvps).group(:rsvp_status).count, height: "250px"
+    .col-lg.chart
+      %h5
+        %u
+          Events per Category :
+          = pie_chart Event.group(:category).count, donut: true, height: "250px"
+  

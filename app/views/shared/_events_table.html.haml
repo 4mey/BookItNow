@@ -1,0 +1,24 @@
+%table.table.list-table
+  %thead.table-dark
+    %tr
+      %th{scope: "col"}= sort_headers(:id,'Id')
+      %th{scope: "col"}= sort_headers(:title,'Title')
+      %th{scope: "col"}= sort_headers(:start_date,'Event Date')
+      %th{scope: "col"}= sort_headers(:location,'Location')
+      %th{scope: "col"}= sort_headers(:status,'Status')
+      %th{scope: "col"}= sort_headers(:category,'Category')
+      %th{scope: "col"}
+  %tbody
+    - @events.each do |event|  
+      %tr
+        %th{scope: "row"}=event.id
+        %td=event.title
+        %td=event.start_date.to_date
+        %td=event.location
+        %td=event.status 
+        %td=event.category        
+        %td.icon-column
+          = link_to attendees_event_path(event.id), class: "show-link" do
+            %i.fa.fa-eye.eye-icon{"aria-hidden" => "true", "style" => "font-size: 1.5em;"}
+.digg_pagination
+  = will_paginate @events, :container => false

@@ -1,0 +1,130 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+.bg-body-secondary {
+  background-color: #894eff !important;
+  color: white;
+}
+
+.nav-link {
+  color: white;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: white;
+}
+
+.col-lg-8.mx-auto {
+  margin-top: 10vh;
+  margin-bottom: 12vh;
+}
+
+.col-lg-8.mx-auto.forms {
+  margin-top: 20vh;
+}
+
+.col-lg-6 {
+  padding-bottom: 10px;
+}
+
+.col-lg-12 {
+  padding-bottom: 20px;
+}
+
+.role-type.col-lg-12 {
+  padding-bottom: 0px;
+}
+
+.btn-secondary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #722cff;
+  --bs-btn-border-color: #8548ff;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #6e25ff;
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: #894eff;
+  --bs-btn-border-color: #894eff;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #894eff;
+  --bs-btn-hover-border-color: #894eff;
+}
+
+
+.card-header:first-child {
+  background-color: #e9deff;
+}
+
+.card {
+  background-color: #f4f0fc;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.mt-4 {
+  margin-top: 0.5rem !important;
+}
+
+.notice,
+.alert {
+  display: flex;
+  justify-content: center;
+}
+
+profile-photo-thumb {
+  border-radius: 50%;
+}
+
+.dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg) scaleX(-1);
+}
+
+.navbar-brand.website-title {
+  color: white;
+  font-weight: 900;
+}
+
+.col-lg-8.mx-auto.add-form{
+  margin-top: 3vw;
+}
+
+p.notice {
+  color: green
+}
+
+p.warnings {
+  color: red
+}
+
+p.alert {
+  color: red;
+}
+
+.message {
+  color: red
+}
+
+.col-lg-8.mx-auto.edit-form {
+  margin-top: 0vh;
+  margin-bottom: 12vh;
+}

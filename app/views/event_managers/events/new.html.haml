@@ -1,0 +1,32 @@
+.col-lg-8.mx-auto
+  .card
+    .card-header
+      %h2.text-center.card-title Add new Event
+    .card-body
+      .d-flex.flex-column
+        -unless warnings.nil?
+          %h4 
+            Errors prohibited this event from being saved :
+          - warnings.each do |error_message|
+            %p.warnings • &nbsp #{error_message}
+      = form_with model: @event ,url: event_managers_events_path, :method => "post" do |f|
+        .col-lg-12
+          = f.label :title
+          = f.text_field :title, class: "form-control"
+        .col-lg-12
+          = f.label :description 
+          = f.text_area :description , class: "form-control"
+        .col-lg-12
+          = f.label :start_date
+          = f.date_field :start_date , class: "form-control"
+        .col-lg-12
+          = f.label :end_date
+          = f.date_field :end_date , class: "form-control"
+        .col-lg-12
+          = f.label :location
+          = f.text_field :location, class: "form-control"
+        .col-lg-12
+          = f.label :category
+          = f.select(:category, ["workshop", "social", "conference", "sports"], {include_blank: 'Select Your Event'}, { :class => 'form-control' })
+        .actions.mt-4
+          = f.submit "Add Event" ,class: "btn btn-secondary"

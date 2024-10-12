@@ -1,0 +1,22 @@
+= stylesheet_link_tag 'list-events.css'
+.container-fluid.table-container
+  %h3.text-center UPCOMING EVENTS LIST
+  .py-2
+    = search_form_for @q, url: upcoming_events_attendees_events_path do |f|
+      .form-group.row.justify-content-evenly
+        .col-2
+          \#{f.select(:category_eq , options_for_select([['Social', Event.categories[:social]],['Workshop', Event.categories[:workshop]], ['Conference', Event.categories[:conference]], ['Sports', Event.categories[:sports]]],selected: params.dig(:q, :category_eq)), {include_blank: 'All Categories'}, { class: 'form-select'})}  
+        .col-5.row.align-items-center
+          .col-1
+            \#{f.label 'From:'}
+          .col-5
+            \#{f.date_field :start_date_gteq, class: 'form-control ransack-field'}
+          .col-1
+            \#{f.label 'To:'}
+          .col-5
+            \#{f.date_field :end_date_lteq, class: 'form-control ransack-field'}
+        .col-2
+          \#{f.search_field :title_or_description_or_location_cont, class: 'form-control ransack-field', id: 'ransack-search', placeholder: 'title, desc, location'}
+        .col-1
+          \#{f.submit class: 'btn btn-outline-dark submit form-control', value: 'Filter'}
+  =render 'shared/events_table'

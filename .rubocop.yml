@@ -1,0 +1,135 @@
+# To exclude the ignored files from git and also disable all cops primarily 
+AllCops:
+  DisabledByDefault: true
+  SuggestExtensions: false
+  NewCops: enable
+  Exclude:
+      - db/schema.rb
+    
+# Checks the indentation of the first line of the right-hand-side of a multi-line assignment.
+Layout/AssignmentIndentation:
+  Enabled: true
+
+# Checks the indentation of the comment
+Layout/CommentIndentation:
+  Enabled: true
+
+# Checks for empty lines present
+Layout/EmptyLines:
+  Enabled: true
+
+# Checks for empty line between method declarations
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+
+# Checks for alignment and indentaton of keys in hash
+Layout/FirstHashElementIndentation:
+  Enabled: true 
+  EnforcedStyle: consistent 
+
+# Checks for inconsistent indentation
+Layout/IndentationConsistency:
+  Enabled: true 
+  EnforcedStyle: normal 
+
+# Checks for indentation style either by tabs or spaces
+Layout/IndentationStyle:
+  Enabled: true
+
+# Checks for tabs spaces in indentation
+Layout/IndentationWidth:
+  Enabled: true
+
+# Checks the allignement of rescue and ensure keywords
+Layout/RescueEnsureAlignment:
+  Enabled: true
+
+# Checks for spacing between block parameters
+Layout/SpaceAroundBlockParameters:
+  Enabled: true
+
+# Checks for spaces in between block braces and code before it
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+
+# Checks for spacing of code inside the block braces
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+
+# Checks for spacing of code inside the hash braces
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+
+# Checks for Parenthesis if the method is called with parameters 
+Lint/RequireParentheses:
+  Enabled: true 
+
+# Checks for trailing whitespaces in the code 
+Layout/TrailingWhitespace:
+  Enabled: true
+
+# Checks if there are are non-ascii characters while naming the identifiers 
+Naming/AsciiIdentifiers:
+  Enabled: true
+
+# Checks if the Class and Module use CamelCase or not  
+Naming/ClassAndModuleCamelCase:
+  Enabled: true
+
+# Checks for the proper naming of the file 
+Naming/FileName:
+  Enabled: true
+
+# Checks if the method name inlcude snake_case or not 
+Naming/MethodName:
+  Enabled: true
+
+# Check if the predicate method name have '?' question mark
+Naming/PredicateName:
+  Enabled: true
+
+# Checks if variables name are defined in snake_case
+Naming/VariableName:
+  Enabled: true
+
+# Suggest && and || instead of 'and' 'or'
+Style/AndOr:
+  Enabled: true
+
+# Suggests to use do when multiline block code and braces when single line
+Style/BlockDelimiters:
+  Enabled: true
+
+# Checks the syntax of hash
+Style/HashSyntax:
+  Enabled: true
+
+# Checks for big numeric literals without ‘_` in between 
+Style/NumericLiterals:
+ Enabled: true
+ 
+# Sets the limit for line length 
+Layout/LineLength:
+  Max: 200
+
+# Sets method length
+Metrics/MethodLength:
+  Max : 25
+
+# Sets percieved complexity
+Metrics/PerceivedComplexity:
+  Max : 15
+
+# Sets cyclomatic complexity
+Metrics/CyclomaticComplexity:
+  Max : 10
+
+Metrics/AbcSize:
+  Max : 20
+
+# Disabling the block length
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'config/routes.rb'

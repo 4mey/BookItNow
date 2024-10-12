@@ -1,0 +1,11 @@
+.chart{
+  padding: 10px;
+  margin: 10px 10px 20px 10px;
+  border: 1px solid black;
+  box-shadow: 0px 4px 4px 0px #cac9c9;
+  border-radius: 15px;
+}
+
+.pdf-btn{
+  margin-left: 10px;
+}

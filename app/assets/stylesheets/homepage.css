@@ -1,0 +1,15 @@
+div.welcome {
+  margin-top: 30vh;
+  color: #160041;
+}
+
+.login-button {
+  margin-right: 10px;
+  padding: 12px 12px 15px 15px;
+  font-size: larger;
+}
+
+.register-button {
+  padding: 12px 12px 15px 15px;
+  font-size: larger;
+}
